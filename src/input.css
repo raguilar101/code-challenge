@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=GFS+Didot&family=Lato:wght@300&display=swap");
+
+@media screen and (min-width: 1024px) {
+  #moreDetial {
+    display: none;
+  }
+  #moreDetial.active {
+    display: block;
+    animation: zoom-in-zoom-out 0.2s;
+  }
+  #expandSection.active {
+    display: block;
+    transform: scale(0, 0);
+    animation: pulse 1s;
+  }
+  #moreDetial .contentSection {
+    opacity: 0;
+    position: relative;
+  }
+  #moreDetial.active .contentSection {
+    opacity: 1;
+    animation: fadeIn 1.2s, slideIn 1.6s;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1.3s ease;
+}
+.fadeOut {
+  opacity: 0;
+  animation: fadeOut 1.3s ease;
+}
+.slideIn {
+  animation: slideIn 1.3s ease, fadeIn 1.3s ease;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    left: -20px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    border-radius: 100%;
+    transform: scale(0.1, 0.1);
+  }
+  100% {
+    border-radius: 0%;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    border-radius: 100%;
+    transform: scale(1, 1);
+  }
+  20% {
+    transform: scale(1.5, 1.5);
+  }
+  50% {
+    transform: scale(1, 1);
+    top: 0;
+    left: 0;
+  }
+  70% {
+    transform: scale(2, 2);
+  }
+  100% {
+    border-radius: 0%;
+    transform: scale(10, 10);
+    top: -120px;
+    left: 120px;
+  }
+}
